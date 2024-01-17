@@ -22,7 +22,7 @@ spec:
       crossplane-providerconfig: default
     vpcIdSelector:
       matchControllerRef: true
-  managementPolicies: ["*"]
+  managementPolicy: FullControl
   providerConfigRef:
     name: default
 ---
@@ -47,7 +47,7 @@ spec:
       matchControllerRef: true
     vpcIdSelector:
       matchControllerRef: true
-  managementPolicies: ["*"]
+  managementPolicy: FullControl
   providerConfigRef:
     name: default
 ---
@@ -73,7 +73,7 @@ spec:
     region: us-east-1
     routeTableIdSelector:
       matchControllerRef: true
-  managementPolicies: ["*"]
+  managementPolicy: FullControl
   providerConfigRef:
     name: default
 ---
@@ -100,7 +100,7 @@ spec:
       matchControllerRef: true
       matchLabels:
         zone: us-east-1a
-  managementPolicies: ["*"]
+  managementPolicy: FullControl
   providerConfigRef:
     name: default
 ---
@@ -127,7 +127,7 @@ spec:
       matchControllerRef: true
       matchLabels:
         zone: us-east-1b
-  managementPolicies: ["*"]
+  managementPolicy: FullControl
   providerConfigRef:
     name: default
 ---
@@ -154,7 +154,7 @@ spec:
       matchControllerRef: true
       matchLabels:
         zone: us-east-1c
-  managementPolicies: ["*"] 
+  managementPolicy: FullControl
   providerConfigRef:
     name: default
 ---
@@ -181,7 +181,7 @@ spec:
       crossplane-providerconfig: default
     vpcIdSelector:
       matchControllerRef: true
-  managementPolicies: ["*"]
+  managementPolicy: FullControl
   providerConfigRef:
     name: default
 ---
@@ -211,7 +211,7 @@ spec:
       matchControllerRef: true
     toPort: 5432
     type: ingress
-  managementPolicies: ["*"]
+  managementPolicy: FullControl
   providerConfigRef:
     name: default
 ---
@@ -239,7 +239,7 @@ spec:
       crossplane-providerconfig: default
     vpcIdSelector:
       matchControllerRef: true
-  managementPolicies: ["*"]
+  managementPolicy: FullControl
   providerConfigRef:
     name: default
 ---
@@ -268,7 +268,7 @@ spec:
       crossplane-providerconfig: default
     vpcIdSelector:
       matchControllerRef: true
-  managementPolicies: ["*"]
+  managementPolicy: FullControl
   providerConfigRef:
     name: default
 ---
@@ -297,7 +297,7 @@ spec:
       crossplane-providerconfig: default
     vpcIdSelector:
       matchControllerRef: true
-  managementPolicies: ["*"]
+  managementPolicy: FullControl
   providerConfigRef:
     name: default
 ---
@@ -326,7 +326,7 @@ spec:
       crossplane-providerconfig: default
     vpcIdSelector:
       matchControllerRef: true
-  managementPolicies: ["*"]
+  managementPolicy: FullControl
   providerConfigRef:
     name: default
 ---
@@ -354,7 +354,7 @@ spec:
       crossplane-kind: vpc.ec2.aws.upbound.io
       crossplane-name: my-db-aws
       crossplane-providerconfig: default
-  managementPolicies: ["*"]
+  managementPolicy: FullControl
   providerConfigRef:
     name: default
 ---
@@ -394,7 +394,7 @@ spec:
       fieldPath: spec.forProvider.username
       kind: Instance
       name: my-db-aws
-      namespace: upbound-system
+      namespace: crossplane-system
     toFieldPath: stringData.username
   - patchesFrom:
       apiVersion: v1
@@ -407,7 +407,7 @@ spec:
       fieldPath: status.atProvider.address
       kind: Instance
       name: my-db-aws
-      namespace: upbound-system
+      namespace: crossplane-system
     toFieldPath: stringData.endpoint
 ---
 apiVersion: rds.aws.upbound.io/v1beta1
@@ -431,7 +431,7 @@ spec:
     dbSubnetGroupNameSelector:
       matchControllerRef: true
     engine: postgres
-    engineVersion: "13.13"
+    engineVersion: "13.4"
     instanceClass: db.m5.2xlarge
     passwordSecretRef:
       key: password
@@ -446,7 +446,7 @@ spec:
     username: masteruser
     vpcSecurityGroupIdSelector:
       matchControllerRef: true
-  managementPolicies: ["*"]
+  managementPolicy: FullControl
   providerConfigRef:
     name: default
 ---
@@ -475,6 +475,6 @@ spec:
       crossplane-kind: subnetgroup.rds.aws.upbound.io
       crossplane-name: my-db-aws
       crossplane-providerconfig: default
-  managementPolicies: ["*"]
+  managementPolicy: FullControl
   providerConfigRef:
     name: default

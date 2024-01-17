@@ -54,7 +54,7 @@ spec:
                 key: password
               publicNetworkAccessEnabled: true
             writeConnectionSecretToRef:
-              namespace: crossplane-system
+              namespace: upbound-system
         patches:
         - type: PatchSet
           patchSetName: metadata

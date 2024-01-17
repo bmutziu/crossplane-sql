@@ -17,6 +17,6 @@ spec:
       provider: aws
       db: postgresql
   parameters:
-    version: "13.13"
+    version: "13.4"
     size: medium
 

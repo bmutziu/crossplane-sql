@@ -37,7 +37,7 @@ spec:
             forProvider:
               region: us-east1
               rootPasswordSecretRef:
-                namespace: crossplane-system
+                namespace: upbound-system
                 key: password
               settings:
               - availabilityType: REGIONAL
@@ -109,7 +109,7 @@ spec:
             credentials:
               source: PostgreSQLConnectionSecret
               connectionSecretRef:
-                namespace: crossplane-system
+                namespace: upbound-system
             sslMode: require
         patches:
         - type: PatchSet
@@ -131,7 +131,7 @@ spec:
             - patchesFrom:
                 apiVersion: sql.gcp.upbound.io/v1beta1
                 kind: User
-                namespace: crossplane-system
+                namespace: upbound-system
                 fieldPath: metadata.name
               toFieldPath: stringData.username
             - patchesFrom:
@@ -142,7 +142,7 @@ spec:
             - patchesFrom:
                 apiVersion: sql.gcp.upbound.io/my-db
                 kind: DatabaseInstance
-                namespace: crossplane-system
+                namespace: upbound-system
                 fieldPath: status.atProvider.publicIpAddress
               toFieldPath: stringData.endpoint
             forProvider:
@@ -150,7 +150,7 @@ spec:
                 apiVersion: v1
                 kind: Secret
                 metadata:
-                  namespace: crossplane-system
+                  namespace: upbound-system
                 data:
                   port: NTQzMg==
         patches:

@@ -2,4 +2,6 @@ apiVersion: kuttl.dev/v1beta1
 kind: TestSuite
 testDirs:
   - ./tests/
-timeout: 30
+timeout: 600
+startKIND: false
+skipClusterDelete: true

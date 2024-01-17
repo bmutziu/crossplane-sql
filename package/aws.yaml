@@ -12,7 +12,7 @@ spec:
   mode: Pipeline
   pipeline:
   - functionRef:
-      name: crossplane-contrib-function-patch-and-transform
+      name: upbound-function-patch-and-transform
     step: patch-and-transform
     input:
       apiVersion: pt.fn.crossplane.io/v1beta1
@@ -364,19 +364,19 @@ spec:
             - patchesFrom:
                 apiVersion: rds.aws.upbound.io/v1beta1
                 kind: Instance
-                namespace: crossplane-system
+                namespace: upbound-system
                 fieldPath: spec.forProvider.username
               toFieldPath: stringData.username
             - patchesFrom:
                 apiVersion: v1
                 kind: Secret
-                namespace: crossplane-system
+                namespace: upbound-system
                 fieldPath: data.password
               toFieldPath: data.password
             - patchesFrom:
                 apiVersion: rds.aws.upbound.io/v1beta1
                 kind: Instance
-                namespace: crossplane-system
+                namespace: upbound-system
                 fieldPath: status.atProvider.address
               toFieldPath: stringData.endpoint
             forProvider:
@@ -384,7 +384,7 @@ spec:
                 apiVersion: v1
                 kind: Secret
                 metadata:
-                  namespace: crossplane-system
+                  namespace: upbound-system
                 data:
                   port: NTQzMg==
         patches:

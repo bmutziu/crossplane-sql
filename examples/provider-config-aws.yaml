@@ -1,6 +1,6 @@
 # export AWS_ACCESS_KEY_ID=[...]
 # export AWS_SECRET_ACCESS_KEY=[...]
-# kubectl --namespace crossplane-system create secret generic aws-creds --from-file creds=./aws-creds.conf
+# kubectl --namespace upbound-system create secret generic aws-creds --from-file credentials=./aws-creds.conf
 ---
 apiVersion: aws.upbound.io/v1beta1
 kind: ProviderConfig
@@ -10,6 +10,6 @@ spec:
   credentials:
     source: Secret
     secretRef:
-      namespace: crossplane-system
+      namespace: upbound-system
       name: aws-creds
-      key: creds
+      key: credentials
